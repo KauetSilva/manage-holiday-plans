@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node server.js",
-    "build": "yarn prisma generate && tsc && copy .env dist"
+    "build": "yarn prisma generate && tsc"
   },
   "keywords": [],
   "license": "ISC",
