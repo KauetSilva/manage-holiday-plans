@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node server.js",
-    "build": "tsc && cp .env dist"
+    "build": "tsc && copy .env dist"
   },
   "keywords": [],
   "license": "ISC",
