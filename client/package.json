@@ -8,8 +8,8 @@
     "email": "kauetclecio1@gmail.com"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev ",
+    "build": "yarn prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
