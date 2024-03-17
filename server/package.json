@@ -9,7 +9,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "node src/server.ts",
-    "start": "node server.js",
+    "start": "node dist/server.js",
     "build": "yarn prisma generate && tsc",
     "vercel-build": "npx prisma migrate deploy"
   },
