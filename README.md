@@ -7,24 +7,18 @@ O **Manage Holidays** é uma aplicação desenvolvida para facilitar o gerenciam
 
 Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os passos abaixo:
 
-1. **Primeira opção:**
+1. **Clone o projeto:**
    ```bash
-   git clone https://github.com/KauetSilva/manage-holidays.git
+   git clone https://github.com/KauetSilva/manage-holiday-plans.git
    *******FRONTEND*******
-   cd manage-holidays
+   cd manage-holiday-plans
    npm install || yarn
+   *******CRIE O ARQUIVO .env E ADICIONE AS VARIÁVEIS DE AMBIENTE BASEADO NO .env.template*******
    npm run dev || yarn dev
    *******BACKEND*******
    cd server
    npm install || yarn
    npm run dev || yarn dev
-
-2. **Segunda opção:**
-    ```bash
-    git clone https://github.com/KauetSilva/manage-holidays.git
-    cd manage-holidays
-    cd docker
-    docker compose up -d
 
 
 ## Recursos Principais
