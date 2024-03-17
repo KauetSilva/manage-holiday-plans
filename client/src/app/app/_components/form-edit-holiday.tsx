@@ -6,24 +6,37 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useRef } from 'react'
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 export default function EditHoliday({ holidayObj, onClose }: any) {
-  const ref = useRef<HTMLDivElement>(null)
-  const router = useRouter()
+  const ref = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   function formatDate(date: Date): string {
-    const day = date.getUTCDate().toString().padStart(2, '0');
-    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = date.getUTCDate().toString().padStart(2, "0");
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");
     const year = date.getUTCFullYear();
 
     return `${year}-${month}-${day}`;
   }
 
-  const dateFormatted =  formatDate(new Date(holidayObj.date))
+  const dateFormatted = formatDate(new Date(holidayObj.date));
   const iconOptions = [
     { value: "mountain", label: "Mountain", icon: <MountainIcon /> },
     { value: "gift", label: "Gift", icon: <GiftIcon /> },
@@ -32,9 +45,15 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
     { value: "beach", label: "Beach", icon: <BeachIcon /> },
     { value: "travel", label: "Travel", icon: <TravelIcon /> },
   ];
-  const selectedIcon = iconOptions.find(option => option.value === holidayObj.icon);
+  const selectedIcon = iconOptions.find(
+    (option) => option.value === holidayObj.icon
+  );
 
-  const defaultIconOption = selectedIcon || { value: "", label: "", icon: null };
+  const defaultIconOption = selectedIcon || {
+    value: "",
+    label: "",
+    icon: null,
+  };
 
   const form = useForm<any>({
     defaultValues: {
@@ -51,7 +70,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
 
   function handleSubmit(values: any) {
     handleSave({
-      id:  holidayObj.id,
+      id: holidayObj.id,
       title: values.title,
       date: values.date,
       description: values.description,
@@ -62,7 +81,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
   const handleSave = async (data: any) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/update-holiday/${holidayObj.id}`,
+        `${process.env.NEXT_PUBLIC_HOLIDAY_API}/update-holiday/${holidayObj.id}`,
         {
           method: "PUT",
           headers: {
@@ -74,9 +93,9 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
 
       if (response.ok) {
         onClose();
-        router.refresh()
+        router.refresh();
 
-        ref.current?.click()
+        ref.current?.click();
         toast({
           variant: "success",
           title: "Success",
@@ -99,16 +118,13 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
       <Card>
         <CardHeader className="relative">
           <h2 className="text-lg font-semibold">Edit Holiday</h2>
-          <Button
-            className="absolute top-2 right-2"
-            onClick={onClose}
-          >
+          <Button className="absolute top-2 right-2" onClick={onClose}>
             X
           </Button>
         </CardHeader>
         <CardContent>
-        <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)}>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(handleSubmit)}>
               <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -120,10 +136,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                           <FormItem>
                             <FormLabel>Title</FormLabel>
                             <FormControl>
-                              <Input
-                                placeholder="Title"
-                                {...field}
-                              />
+                              <Input placeholder="Title" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -160,7 +173,10 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                         return (
                           <FormItem>
                             <FormLabel>Icon</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={defaultIconOption.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={defaultIconOption.value}
+                            >
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Select a icon" />
@@ -221,7 +237,6 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
   );
 }
 
-
 function MountainIcon(props: any) {
   return (
     <svg
@@ -238,7 +253,7 @@ function MountainIcon(props: any) {
     >
       <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
     </svg>
-  )
+  );
 }
 
 function CakeIcon(props: any) {
@@ -255,7 +270,6 @@ function CakeIcon(props: any) {
   );
 }
 
-
 function PartyIcon(props: any) {
   return (
     <svg
@@ -269,7 +283,6 @@ function PartyIcon(props: any) {
     </svg>
   );
 }
-
 
 function GiftIcon(props: any) {
   return (
@@ -312,4 +325,3 @@ function TravelIcon(props: any) {
     </svg>
   );
 }
-

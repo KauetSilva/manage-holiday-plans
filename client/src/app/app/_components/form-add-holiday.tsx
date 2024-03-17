@@ -65,7 +65,7 @@ export default function AddHoliday({ onClose }: any) {
 
   const handleSave = async (data: any) => {
     try {
-      const response = await fetch("http://localhost:8080/add-holiday", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOLIDAY_API}/add-holiday`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,10 +101,7 @@ export default function AddHoliday({ onClose }: any) {
       <Card>
         <CardHeader className="relative">
           <h2 className="text-lg font-semibold">Add Holiday</h2>
-          <Button
-            className="absolute top-2 right-2"
-            onClick={onClose}
-          >
+          <Button className="absolute top-2 right-2" onClick={onClose}>
             X
           </Button>
         </CardHeader>

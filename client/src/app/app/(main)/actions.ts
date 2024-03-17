@@ -20,16 +20,23 @@ export async function getUserHoliday() {
   }
 
   const userId = session?.user.id;
-  const response = await fetch(`http://localhost:8080/get-holidays/${userId}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_HOLIDAY_API}/get-holidays/${userId}`
+  );
   const holidays = await response.json();
 
   return holidays;
 }
 
-export async function getUserHolidayPage(page: number = 1, pageSize: number = 10) {
+export async function getUserHolidayPage(
+  page: number = 1,
+  pageSize: number = 10
+) {
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
-  const response = await fetch(`http://localhost:8080/get-holidays/${userId}?page=${page}&pageSize=${pageSize}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_HOLIDAY_API}/get-holidays/${userId}?page=${page}&pageSize=${pageSize}`
+  );
   const holidays = await response.json();
 
   return holidays;
@@ -37,7 +44,7 @@ export async function getUserHolidayPage(page: number = 1, pageSize: number = 10
 
 export async function insertHoliday(data: z.infer<typeof insertHolidaySchema>) {
   const session = await getServerSession(authOptions);
-  
+
   if (!session?.user?.id) {
     return {
       error: "Not authorized",
@@ -45,7 +52,7 @@ export async function insertHoliday(data: z.infer<typeof insertHolidaySchema>) {
     };
   }
   data.userId = session?.user.id as string;
-  const response = await fetch("http://localhost:8080/add-holiday", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOLIDAY_API}/add-holiday`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +75,7 @@ export async function updateHoliday(data: z.infer<typeof updateHolidaySchema>) {
 
   const userId = session?.user.id;
   const response = await fetch(
-    `http://localhost:8080/update-holiday/${userId}`,
+    `${process.env.NEXT_PUBLIC_HOLIDAY_API}/update-holiday/${userId}`,
     {
       method: "PUT",
       headers: {
@@ -96,7 +103,7 @@ export async function deleteHoliday(
   const holidayId = input.id;
 
   const response = await fetch(
-    `http://localhost:8080/delete-holiday/${holidayId}`,
+    `${process.env.NEXT_PUBLIC_HOLIDAY_API}/delete-holiday/${holidayId}`,
     {
       method: "DELETE",
       headers: {

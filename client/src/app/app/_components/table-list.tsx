@@ -49,7 +49,7 @@ export default function TableList({ holidays }: any) {
   const handleDeleteHoliday = async (holidayId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/delete-holiday/${holidayId}`,
+        `${process.env.NEXT_PUBLIC_HOLIDAY_API}/delete-holiday/${holidayId}`,
         {
           method: "DELETE",
           headers: {
