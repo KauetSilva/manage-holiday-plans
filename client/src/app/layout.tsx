@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Manage Holiday',
-  description: 'é uma aplicação desenvolvida para facilitar o gerenciamento de feriados.',
+  description: 'É uma aplicação desenvolvida para facilitar o gerenciamento de feriados.',
 }
 
 export default function RootLayout({
