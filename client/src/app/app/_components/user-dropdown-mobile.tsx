@@ -10,15 +10,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  HomeIcon,
-  LockClosedIcon,
-  MixerVerticalIcon,
-  TableIcon,
-} from "@radix-ui/react-icons";
+import { HomeIcon, LockClosedIcon, TableIcon } from "@radix-ui/react-icons";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
-import NextLink from 'next/link';
+import NextLink from "next/link";
 
 type UserDropdownProps = {
   user: Session["user"];
@@ -37,10 +32,14 @@ export function UserDropdownMobile({ user }: UserDropdownProps) {
           >
             <div className="flex flex-col flex-1 space-y-1 text-right">
               {user.name && (
-                <p className="text-sm font-medium leading-none">{user.name}</p>
+                <p className="text-sm font-medium leading-none">
+                  {user.name.length > 10
+                    ? `${user.name.substring(0, 10)}...`
+                    : user.name}
+                </p>
               )}
             </div>
-            <Avatar className="h-8 w-8">
+            <Avatar className="h-8 w-8 ">
               <AvatarImage
                 src={user.image as string}
                 alt={user.name as string}
@@ -57,25 +56,35 @@ export function UserDropdownMobile({ user }: UserDropdownProps) {
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {user.email}
-            </p>
+            {user.name && (
+              <p className="text-sm font-medium leading-none">
+                {user.name.length > 25
+                  ? `${user.name.substring(0, 25)}...`
+                  : user.name}
+              </p>
+            )}
+            {user.email && (
+              <p className="text-xs leading-none text-muted-foreground">
+                {user.email.length > 25
+                  ? `${user.email.substring(0, 25)}...`
+                  : user.email}
+              </p>
+            )}
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-        <NextLink href="/app" passHref>
-          <DropdownMenuItem>
-            <HomeIcon className="w-3 h-3 mr-3" />
-            Holiday
-          </DropdownMenuItem>
+          <NextLink href="/app" passHref>
+            <DropdownMenuItem>
+              <HomeIcon className="w-3 h-3 mr-3" />
+              Holiday
+            </DropdownMenuItem>
           </NextLink>
           <NextLink href="/app/table" passHref>
-          <DropdownMenuItem>
-            <TableIcon className="w-3 h-3 mr-3" />
-            Table
-          </DropdownMenuItem>
+            <DropdownMenuItem>
+              <TableIcon className="w-3 h-3 mr-3" />
+              Table
+            </DropdownMenuItem>
           </NextLink>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

@@ -136,7 +136,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                           <FormItem>
                             <FormLabel>Title</FormLabel>
                             <FormControl>
-                              <Input placeholder="Title" {...field} />
+                              <Input placeholder="Title" required={true} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -156,6 +156,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                               <Input
                                 placeholder="Date"
                                 type="date"
+                                required={true}
                                 {...field}
                               />
                             </FormControl>
@@ -176,6 +177,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                             <Select
                               onValueChange={field.onChange}
                               defaultValue={defaultIconOption.value}
+                              required={true}
                             >
                               <FormControl>
                                 <SelectTrigger>
@@ -218,6 +220,7 @@ export default function EditHoliday({ holidayObj, onClose }: any) {
                               className="min-h-[100px]"
                               id="description"
                               placeholder="Enter description"
+                              required={true}
                               {...field}
                             />
                           </FormControl>

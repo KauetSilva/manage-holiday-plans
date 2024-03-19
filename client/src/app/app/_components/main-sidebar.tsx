@@ -10,7 +10,7 @@ import {
   DashboardSidebarFooter,
 } from "@/components/dashboard/sidebar";
 import { usePathname } from "next/navigation";
-import { HomeIcon, MixerVerticalIcon, TableIcon } from "@radix-ui/react-icons";
+import { HomeIcon, TableIcon } from "@radix-ui/react-icons";
 import { UserDropdown } from "./user-dropdown";
 import { Logo } from "@/components/logo";
 import { Session } from "next-auth";
