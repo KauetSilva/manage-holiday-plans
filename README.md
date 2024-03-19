@@ -10,11 +10,14 @@ Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os 
 1. **Clone o projeto:**
    ```bash
    git clone https://github.com/KauetSilva/manage-holiday-plans.git
+
    *******FRONTEND*******
    cd manage-holiday-plans
    npm install || yarn
+
    *******CRIE O ARQUIVO .env E ADICIONE AS VARIÁVEIS DE AMBIENTE BASEADO NO .env.template*******
    npm run dev || yarn dev
+   
    *******BACKEND*******
    cd server
    npm install || yarn
