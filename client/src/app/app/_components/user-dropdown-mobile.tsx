@@ -76,13 +76,13 @@ export function UserDropdownMobile({ user }: UserDropdownProps) {
         <DropdownMenuGroup>
           <NextLink href="/app" passHref>
             <DropdownMenuItem>
-              <HomeIcon className="w-3 h-3 mr-3" />
+              <HomeIcon className="w-4 h-4 mr-3" />
               Holiday
             </DropdownMenuItem>
           </NextLink>
           <NextLink href="/app/table" passHref>
             <DropdownMenuItem>
-              <TableIcon className="w-3 h-3 mr-3" />
+              <TableIcon className="w-4 h-4 mr-3" />
               Table
             </DropdownMenuItem>
           </NextLink>

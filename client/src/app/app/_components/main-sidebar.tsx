@@ -35,14 +35,14 @@ export function MainSidebar({ user }: MainSidebarProps) {
         <DashboardSidebarNav>
           <DashboardSidebarNavMain>
             <DashboardSidebarNavLink href="/app" active={isActive("/app")}>
-              <HomeIcon className="w-3 h-3 mr-3" />
+              <HomeIcon className="w-4 h-4 mr-3" />
               Holiday
             </DashboardSidebarNavLink>
             <DashboardSidebarNavLink
               href="/app/table"
               active={isActive("/app/table")}
             >
-              <TableIcon className="w-3 h-3 mr-3" />
+              <TableIcon className="w-4 h-4 mr-3" />
               Table
             </DashboardSidebarNavLink>
           </DashboardSidebarNavMain>
