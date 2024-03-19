@@ -30,7 +30,7 @@ Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os 
 ## Tecnologias Utilizadas
 - **Frontend:** Next.js.
 - **Backend:** Node.js, Express.js.
-- **Banco de Dados:** SQLite + Prisma.
+- **Banco de Dados:** PostgreSQL + Prisma.
 - **Estilização:** Tailwind CSS.
 - **Outras ferramentas e tecnologias conforme necessário**
 
@@ -42,5 +42,3 @@ Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os 
 - **Responsividade:** Aprimorar a responsividade do layout para dispositivos móveis.
 - **Performance:** Aprimorar a performance para melhor experiência do usuário.
 
-## Licença
-Este projeto está sob licença [MIT](./LICENSE).

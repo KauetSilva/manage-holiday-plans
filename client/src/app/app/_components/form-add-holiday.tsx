@@ -119,7 +119,7 @@ export default function AddHoliday({ onClose }: any) {
                           <FormItem>
                             <FormLabel>Title</FormLabel>
                             <FormControl>
-                              <Input placeholder="Title" {...field} />
+                              <Input placeholder="Title" required={true} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -139,6 +139,7 @@ export default function AddHoliday({ onClose }: any) {
                               <Input
                                 placeholder="Date"
                                 type="date"
+                                required={true}
                                 {...field}
                               />
                             </FormControl>
@@ -156,7 +157,7 @@ export default function AddHoliday({ onClose }: any) {
                         return (
                           <FormItem>
                             <FormLabel>Icon</FormLabel>
-                            <Select onValueChange={field.onChange}>
+                            <Select onValueChange={field.onChange} required={true}>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Select a icon" />
@@ -198,6 +199,7 @@ export default function AddHoliday({ onClose }: any) {
                               className="min-h-[100px]"
                               id="description"
                               placeholder="Enter description"
+                              required={true}
                               {...field}
                             />
                           </FormControl>
