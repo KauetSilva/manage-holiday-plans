@@ -21,7 +21,10 @@ Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os 
    *******BACKEND*******
    cd server
    npm install || yarn
-   npm run dev || yarn dev
+
+   *******CRIE O ARQUIVO .env E ADICIONE AS VARIÁVEIS DE AMBIENTE BASEADO NO .env.template******
+   npm run build || yarn build
+   npm run start || yarn start
 
 
 ## Recursos Principais
