@@ -45,6 +45,5 @@ Para rodar a aplicação localmente em seu ambiente de desenvolvimento, siga os 
 - **Frontend:** Criar multi linguagem na plataforma.
 - **Backend:** Criar um middleware de autenticação onde só irá receber requisições com segurança.
 - **Backend & Frontend:** Implementar testes unitários e de integração utilizando Jest ou Mocha.
-- **Responsividade:** Aprimorar a responsividade do layout para dispositivos móveis.
 - **Performance:** Aprimorar a performance para melhor experiência do usuário.
 
